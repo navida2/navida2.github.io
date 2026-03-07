@@ -12,10 +12,10 @@
     :root {
       --bg: #0c0c0e;
       --surface: #141416;
-      --border: #222226;   
-      --text: #e8e6e0;   
+      --border: #222226;
+      --text: #e8e6e0;
       --muted: #6b6b72;
-      --accent: #c8f06e;  
+      --accent: #c8f06e;
       --serif: 'DM Serif Display', Georgia, serif;
       --mono: 'DM Mono', 'Courier New', monospace;
     }
@@ -153,6 +153,151 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
     }
+
+    /* hero takes up the full first screen */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+    }
+
+    /* little pill tag above the name */
+    .hero-tag {
+      display: inline-block;
+      background: rgba(200,240,110,0.08);
+      border: 1px solid rgba(200,240,110,0.2);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    /* the big name */
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    /* the italic green part of the name */
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      display: block;
+    }
+
+    /* the one liner */
+    .hero-oneliner {
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-oneliner span {
+      color: var(--text);
+    }
+
+    /* github linkedin email buttons */
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    /* solid green button - for the main cta */
+    .btn-primary {
+      background: var(--accent);
+      color: #0c0c0e;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #d8ff7e;
+      transform: translateY(-2px);
+    }
+
+    /* outlined button - for secondary links */
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* stat row at the bottom of the hero */
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      color: var(--accent);
+      display: block;
+      letter-spacing: -1px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* the fade up animation used throughout the hero */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .hero-stats { gap: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -176,6 +321,46 @@
       </div>
     </div>
   </nav>
+
+  <section class="hero">
+    <div class="hero-container">
+
+      <!-- small tag - swap text if u want -->
+      <div class="hero-tag">>Honors CS · UCI</div>
+
+      <!-- ur name - the italic part drops to its own line -->
+      <h1>Navid<br><em>Atashbar.</em></h1>
+
+      <!-- one liner -->
+      <p class="hero-oneliner">
+        <span>CS Student @ UCI</span> · ML & Computer Vision
+      </p>
+
+      <!-- buttons - swap YOUR_GITHUB and YOUR_LINKEDIN -->
+      <div class="hero-links">
+        <a href="https://github.com/YOUR_GITHUB" target="_blank" class="btn btn-primary">GitHub ↗</a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
+      </div>
+
+      <!-- quick stats so recruiters see the highlights fast
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">3.63</span>
+          <span class="stat-label">GPA at UCI</span>
+        </div>
+        <div>
+          <span class="stat-num">5×</span>
+          <span class="stat-label">Dean's Honor List</span>
+        </div>
+        <div>
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Projects shipped</span>
+        </div>
+      </div> -->
+
+    </div>
+  </section>
 
   <!-- script goes here so the navbar element exists before js runs -->
   <script>
