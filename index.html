@@ -46,14 +46,13 @@
       transition: background 0.3s ease, border-bottom 0.3s ease;
     }
 
-    /* this class gets added by js when u scroll down - gives it that frosted look */
+    /* frosted background kicks in once u scroll */
     nav.scrolled {
       background: rgba(12,12,14,0.95);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(8px);
     }
 
-    /* just centering everything and keeping max width consistent */
     .nav-container {
       max-width: 900px;
       margin: 0 auto;
@@ -63,7 +62,6 @@
       align-items: center;
     }
 
-    /* logo on the left */
     .nav-logo {
       font-family: var(--serif);
       font-size: 20px;
@@ -74,11 +72,8 @@
     }
 
     .nav-logo:hover { color: var(--accent); }
-
-    /* the green part of the logo */
     .nav-logo span { color: var(--accent); }
 
-    /* the links on the right */
     .nav-links {
       display: flex;
       gap: 36px;
@@ -95,7 +90,7 @@
       transition: color 0.2s;
     }
 
-    /* this is the underline that slides in on hover - looks clean */
+    /* underline slides in on hover */
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -108,7 +103,7 @@
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* contact is styled different so recruiters notice it */
+    /* contact button stands out so recruiters see it */
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -123,16 +118,13 @@
       transition: all 0.2s ease !important;
     }
 
-    /* slight green glow on hover */
     .nav-cta:hover {
       background: rgba(200,240,110,0.08) !important;
       border-color: var(--accent) !important;
     }
 
-    /* turn off the underline animation for the cta button */
     .nav-cta::after { display: none !important; }
 
-    /* hamburger icon for mobile - hidden on desktop */
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -146,12 +138,6 @@
       width: 22px; height: 1px;
       background: var(--muted);
       transition: all 0.3s ease;
-    }
-
-    /* hide links and show hamburger on small screens */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
     }
 
     /* hero takes up the full first screen */
@@ -169,14 +155,12 @@
       margin: 0 auto;
       padding: 0 32px;
       width: 100%;
-      /* two columns - text left, photo right */
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 64px;
       align-items: center;
     }
 
-    /* little pill tag above the name */
     .hero-tag {
       display: inline-block;
       background: rgba(200,240,110,0.08);
@@ -191,7 +175,6 @@
       animation: fadeUp 0.6s ease both;
     }
 
-    /* the big name */
     .hero h1 {
       font-family: var(--serif);
       font-size: clamp(52px, 8vw, 96px);
@@ -202,14 +185,13 @@
       animation: fadeUp 0.6s 0.1s ease both;
     }
 
-    /* the italic green part of the name */
+    /* italic green last name */
     .hero h1 em {
       font-style: italic;
       color: var(--accent);
       display: block;
     }
 
-    /* the one liner */
     .hero-oneliner {
       font-size: 14px;
       color: var(--muted);
@@ -220,7 +202,6 @@
 
     .hero-oneliner span { color: var(--text); }
 
-    /* github linkedin email buttons */
     .hero-links {
       display: flex;
       gap: 12px;
@@ -241,7 +222,6 @@
       transition: all 0.2s ease;
     }
 
-    /* solid green button - for the main cta */
     .btn-primary {
       background: var(--accent);
       color: #0c0c0e;
@@ -253,7 +233,6 @@
       transform: translateY(-2px);
     }
 
-    /* outlined button - for secondary links */
     .btn-outline {
       background: transparent;
       color: var(--text);
@@ -266,7 +245,7 @@
       transform: translateY(-2px);
     }
 
-    /* photo on the right side of the hero */
+    /* photo on the right - slight desaturation to match dark theme */
     .hero-photo {
       animation: fadeUp 0.6s 0.2s ease both;
       flex-shrink: 0;
@@ -275,26 +254,23 @@
     .hero-photo img {
       width: 260px;
       height: 320px;
-      object-fit: cover; /* crops to fill the box nicely */
+      object-fit: cover;
       border-radius: 4px;
       border: 1px solid var(--border);
-      /* green glow around the photo - subtle but looks good */
       box-shadow: 0 0 0 1px rgba(200,240,110,0.1), 0 24px 64px rgba(0,0,0,0.5);
-      filter: grayscale(20%); /* slight desaturation to match the dark theme */
+      filter: grayscale(20%);
       transition: filter 0.3s ease;
     }
 
-    .hero-photo img:hover {
-      filter: grayscale(0%); /* full color on hover */
-    }
+    /* full color on hover */
+    .hero-photo img:hover { filter: grayscale(0%); }
 
-    /* the fade up animation used throughout the hero */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* shared section styles - reused across about, projects, education */
+    /* shared across all sections */
     .section-container {
       max-width: 900px;
       margin: 0 auto;
@@ -307,7 +283,6 @@
       z-index: 1;
     }
 
-    /* the header row with number, title, and a line */
     .section-header {
       display: flex;
       align-items: center;
@@ -328,14 +303,14 @@
       letter-spacing: -1px;
     }
 
-    /* the line that stretches to fill the rest of the header */
+    /* line that fills the rest of the header row */
     .section-line {
       flex: 1;
       height: 1px;
       background: var(--border);
     }
 
-    /* two column layout - bio on left, skills on right */
+    /* about - bio left, skills right */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -349,13 +324,11 @@
       line-height: 1.9;
     }
 
-    /* highlights key words in the bio */
     .about-text strong {
       color: var(--text);
       font-weight: 500;
     }
 
-    /* label above each skills group */
     .skills-label {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -367,7 +340,6 @@
 
     .skills-label:first-child { margin-top: 0; }
 
-    /* the skills chips */
     .skills-row {
       display: flex;
       flex-wrap: wrap;
@@ -389,20 +361,16 @@
       color: var(--text);
     }
 
-    /* green chip for areas of interest - stands out more */
+    /* green chips for areas of interest */
     .skill-chip.accent {
       background: rgba(200,240,110,0.06);
       border-color: rgba(200,240,110,0.2);
       color: var(--accent);
     }
 
-    /* project cards stack vertically with a small gap */
-    .projects-grid {
-      display: grid;
-      gap: 2px;
-    }
+    /* project cards stack vertically */
+    .projects-grid { display: grid; gap: 2px; }
 
-    /* each card is a clickable row */
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -416,18 +384,14 @@
       color: inherit;
     }
 
-    /* slides right and gets a green tint on hover */
+    /* slides right on hover */
     .project-card:hover {
       border-color: rgba(200,240,110,0.25);
       background: rgba(200,240,110,0.03);
       transform: translateX(4px);
     }
 
-    .project-num {
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+    .project-num { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
 
     .project-title {
       font-family: var(--serif);
@@ -444,7 +408,6 @@
       max-width: 560px;
     }
 
-    /* language/tech tags below the description */
     .project-tags {
       display: flex;
       gap: 6px;
@@ -463,14 +426,13 @@
       border: 1px solid var(--border);
     }
 
-    /* green tag for the main category */
     .tag.accent {
       background: rgba(200,240,110,0.08);
       color: var(--accent);
       border-color: rgba(200,240,110,0.2);
     }
 
-    /* arrow in top right of each card */
+    /* arrow moves diagonally on hover */
     .project-arrow {
       font-size: 20px;
       color: var(--muted);
@@ -479,24 +441,126 @@
       flex-shrink: 0;
     }
 
-    /* arrow moves diagonally on hover */
     .project-card:hover .project-arrow {
       color: var(--accent);
       transform: translate(3px, -3px);
     }
 
+    /* education timeline */
+    .timeline { display: grid; gap: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item:first-child { padding-top: 0; }
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-date {
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 4px;
+    }
+
+    .timeline-body h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    /* green subtitle line */
+    .timeline-sub {
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .timeline-desc li {
+      margin-left: 16px;
+      margin-bottom: 4px;
+    }
+
+    /* contact - big centered block at the bottom */
+    .contact-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 80px 64px;
+      text-align: center;
+    }
+
+    .contact-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    /* italic green word in the heading */
+    .contact-inner h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* footer at the very bottom */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-copy span { color: var(--accent); }
+
+    /* mobile */
     @media (max-width: 640px) {
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .hero-container { grid-template-columns: 1fr; }
-      /* hide photo on mobile so it doesnt crowd the text */
       .hero-photo { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .contact-inner { padding: 48px 24px; }
     }
 
   </style>
 </head>
 <body>
 
-  <!-- grid and nav are siblings, not nested -->
   <div class="grid-bg"></div>
 
   <nav id="navbar">
@@ -506,58 +570,44 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
-        <!-- contact styled as a button so it pops -->
         <a href="#contact" class="nav-cta">Contact ↗</a>
       </div>
-      <!-- only shows on mobile -->
       <div class="nav-hamburger">
         <span></span><span></span><span></span>
       </div>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-container">
-
-      <!-- left side - text -->
       <div>
-        <!-- small tag above the name -->
         <div class="hero-tag">Honors CS · UCI</div>
-
-        <!-- ur name - italic part drops to its own line -->
         <h1>Navid<br><em>Atashbar.</em></h1>
-
-        <!-- one liner -->
         <p class="hero-oneliner">
           <span>CS Student @ UCI</span> · ML & Computer Vision
         </p>
-
         <div class="hero-links">
           <a href="https://github.com/navida2" target="_blank" class="btn btn-primary">GitHub ↗</a>
           <a href="https://linkedin.com/in/navid-atashbar" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
           <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
         </div>
       </div>
-
       <div class="hero-photo">
         <img src="atashbar@uci.edu-b1d3e420.jpg" alt="Navid Atashbar" />
       </div>
-
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="section-container">
-
       <div class="section-header">
         <span class="section-num">01</span>
         <h2 class="section-title">About</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="about-grid">
-
-        <!-- left side - bio -->
         <div class="about-text">
           <p>
             I'm a third-year <strong>Honors CS student at UC Irvine</strong> specializing in
@@ -571,14 +621,11 @@
             <strong>hand detection system</strong> using OpenCV to a
             <strong>business website</strong> that drove a 10% sales increase
             for a local auto shop. I'm active in <strong>AI@UCI</strong> and
-            <strong>Cyber@UCI</strong> and always looking for ways to apply
-            what I'm learning to real problems.
+            <strong>Cyber@UCI</strong> and always looking to apply what I'm
+            learning to real problems.
           </p>
         </div>
-
-        <!-- right side - skills grouped by category -->
         <div>
-
           <div class="skills-label">Areas of Interest</div>
           <div class="skills-row">
             <span class="skill-chip accent">Machine Learning</span>
@@ -586,7 +633,6 @@
             <span class="skill-chip accent">AI Systems</span>
             <span class="skill-chip accent">Full Stack</span>
           </div>
-
           <div class="skills-label">Languages</div>
           <div class="skills-row">
             <span class="skill-chip">Python</span>
@@ -595,7 +641,6 @@
             <span class="skill-chip">SQL</span>
             <span class="skill-chip">HTML/CSS/JS</span>
           </div>
-
           <div class="skills-label">Frameworks & Libraries</div>
           <div class="skills-row">
             <span class="skill-chip">PyTorch</span>
@@ -604,38 +649,33 @@
             <span class="skill-chip">Pandas</span>
             <span class="skill-chip">Pygame</span>
           </div>
-
           <div class="skills-label">Tools</div>
           <div class="skills-row">
             <span class="skill-chip">Git</span>
             <span class="skill-chip">AWS</span>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-container">
-
       <div class="section-header">
         <span class="section-num">02</span>
         <h2 class="section-title">Projects</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="projects-grid">
 
-        <!-- hand detector -->
         <a href="https://github.com/navida2/Hand-Detector" target="_blank" class="project-card">
           <div>
             <div class="project-num">001</div>
             <div class="project-title">Hand Detector</div>
             <div class="project-desc">
               Real-time hand detection using a webcam. Detects left, right, or both hands
-              simultaneously using MediaPipe's landmark model and displays live results in a text UI.
+              simultaneously using MediaPipe's landmark model with a live text UI.
             </div>
             <div class="project-tags">
               <span class="tag accent">Computer Vision</span>
@@ -647,7 +687,6 @@
           <div class="project-arrow">↗</div>
         </a>
 
-        <!-- google calendar -->
         <a href="https://github.com/navida2/google_calender_event_creator" target="_blank" class="project-card">
           <div>
             <div class="project-num">002</div>
@@ -666,14 +705,13 @@
           <div class="project-arrow">↗</div>
         </a>
 
-        <!-- autotech -->
         <a href="https://github.com/navida2/autotech" target="_blank" class="project-card">
           <div>
             <div class="project-num">003</div>
             <div class="project-title">Auto Tech — Business Website</div>
             <div class="project-desc">
-              Custom website built for a local auto repair shop. Reached 50+ daily visitors
-              and contributed to a 10% increase in sales through improved digital presence.
+              Custom website for a local auto repair shop. Reached 50+ daily visitors and
+              contributed to a 10% increase in sales through improved digital presence.
             </div>
             <div class="project-tags">
               <span class="tag accent">Web Dev</span>
@@ -685,14 +723,30 @@
           <div class="project-arrow">↗</div>
         </a>
 
-        <!-- dijkstras -->
         <a href="https://github.com/navida2/dijkstras_and_ladder_stack_problem" target="_blank" class="project-card">
           <div>
             <div class="project-num">004</div>
             <div class="project-title">Dijkstra's & Ladder Stack Problem</div>
             <div class="project-desc">
-              C++ implementations of Dijkstra's shortest path algorithm and the classic
-              ladder/stack problem — focused on clean algorithm design and efficiency.
+              C++ implementations of Dijkstra's shortest path algorithm and the ladder stack
+              problem — focused on clean algorithm design and efficiency.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Algorithms</span>
+              <span class="tag">C++</span>
+              <span class="tag">Graph Theory</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a href="https://github.com/navida2/kruskals_bfs_dfs" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">005</div>
+            <div class="project-title">Kruskal's, BFS & DFS</div>
+            <div class="project-desc">
+              C++ implementations of Kruskal's minimum spanning tree algorithm alongside
+              breadth-first and depth-first graph traversals.
             </div>
             <div class="project-tags">
               <span class="tag accent">Algorithms</span>
@@ -707,7 +761,62 @@
     </div>
   </section>
 
-  <!-- script goes here so the navbar element exists before js runs -->
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2023 — 2027</div>
+          <div class="timeline-body">
+            <h3>UC Irvine</h3>
+            <div class="timeline-sub">B.S. Honors Computer Science — AI, Systems & Networks</div>
+            <div class="timeline-desc">
+              <ul>
+                <li>GPA: 3.63/4.0 · Dean's Honor List (5 quarters)</li>
+                <li>Coursework: Data Structures & Algorithms, Design & Analysis of Algorithms, System Design, Machine Learning, Computer Vision, Information Retrieval, AI</li>
+                <li>Clubs: AI@UCI · Cyber@UCI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-container">
+      <div class="contact-inner">
+        <h2>Let's <em>work</em> together.</h2>
+        <p class="contact-sub">
+          I'm actively looking for internships in software engineering,<br>
+          ML engineering, or research. Let's talk.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:atashbar@uci.edu" class="btn btn-primary">Send an Email ↗</a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="https://github.com/navida2" target="_blank" class="btn btn-outline">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="section-container">
+    <footer>
+      <div class="footer-copy">© 2025 <span>Navid Atashbar</span></div>
+      <div class="footer-copy">atashbar@uci.edu · Irvine, CA</div>
+    </footer>
+  </div>
+
+  <!-- scroll listener for frosted navbar -->
   <script>
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
