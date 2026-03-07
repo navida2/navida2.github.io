@@ -1,32 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Navid Atashbar</title>
-        <style>
-            *,*::before,*::after { box-sizing:border-box;margin:0;padding:0;}
-            :root {
-                --bg: #0c0c0e;
-                --accent: #c8f06e;
-            }
-            body {
-                background: var(--bg);
-                min-height: 100vh;
-            }
-            .grid-bg {
-                position: fixed;
-                inset:0;
-                background-image: 
-                    linear-gradient(rgba(200,240,110,0.07) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(200,240,110,0.07) 1px, transparent 1px);
-                background-size: 60px 60px;
-                pointer-events: none;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navid Atashbar</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap');
 
-            }
-        </style>
-    </head>
-    <body>
-        <div class = "grid-bg"></div>
-    </body>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0c0e;
+      --surface: #141416;
+      --border: #222226;   
+      --text: #e8e6e0;   
+      --muted: #6b6b72;
+      --accent: #c8f06e;  
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'DM Mono', 'Courier New', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      font-family: var(--mono);
+    }
+
+    /* grid stays fixed behind everything */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,240,110,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,240,110,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* navbar sits on top of everything and stays fixed while u scroll */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: background 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    /* this class gets added by js when u scroll down - gives it that frosted look */
+    nav.scrolled {
+      background: rgba(12,12,14,0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    /* just centering everything and keeping max width consistent */
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* logo on the left */
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-logo:hover { color: var(--accent); }
+
+    /* the green part of the logo */
+    .nav-logo span { color: var(--accent); }
+
+    /* the links on the right */
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    /* this is the underline that slides in on hover - looks clean */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* contact is styled different so recruiters notice it */
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: transparent;
+      border: 1px solid rgba(200,240,110,0.4);
+      color: var(--accent) !important;
+      border-radius: 2px;
+      font-size: 11px !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.2s ease !important;
+    }
+
+    /* slight green glow on hover */
+    .nav-cta:hover {
+      background: rgba(200,240,110,0.08) !important;
+      border-color: var(--accent) !important;
+    }
+
+    /* turn off the underline animation for the cta button */
+    .nav-cta::after { display: none !important; }
+
+    /* hamburger icon for mobile - hidden on desktop */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--muted);
+      transition: all 0.3s ease;
+    }
+
+    /* hide links and show hamburger on small screens */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- grid and nav are siblings, not nested -->
+  <div class="grid-bg"></div>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Navid <span>Atashbar</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <!-- contact styled as a button so it pops -->
+        <a href="#contact" class="nav-cta">Contact ↗</a>
+      </div>
+      <!-- only shows on mobile -->
+      <div class="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- script goes here so the navbar element exists before js runs -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
 </html>
