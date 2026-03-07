@@ -169,6 +169,11 @@
       margin: 0 auto;
       padding: 0 32px;
       width: 100%;
+      /* two columns - text left, photo right */
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 64px;
+      align-items: center;
     }
 
     /* little pill tag above the name */
@@ -259,6 +264,28 @@
       border-color: var(--accent);
       color: var(--accent);
       transform: translateY(-2px);
+    }
+
+    /* photo on the right side of the hero */
+    .hero-photo {
+      animation: fadeUp 0.6s 0.2s ease both;
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      width: 260px;
+      height: 320px;
+      object-fit: cover; /* crops to fill the box nicely */
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      /* green glow around the photo - subtle but looks good */
+      box-shadow: 0 0 0 1px rgba(200,240,110,0.1), 0 24px 64px rgba(0,0,0,0.5);
+      filter: grayscale(20%); /* slight desaturation to match the dark theme */
+      transition: filter 0.3s ease;
+    }
+
+    .hero-photo img:hover {
+      filter: grayscale(0%); /* full color on hover */
     }
 
     /* the fade up animation used throughout the hero */
@@ -369,8 +396,100 @@
       color: var(--accent);
     }
 
+    /* project cards stack vertically with a small gap */
+    .projects-grid {
+      display: grid;
+      gap: 2px;
+    }
+
+    /* each card is a clickable row */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* slides right and gets a green tint on hover */
+    .project-card:hover {
+      border-color: rgba(200,240,110,0.25);
+      background: rgba(200,240,110,0.03);
+      transform: translateX(4px);
+    }
+
+    .project-num {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* language/tech tags below the description */
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* green tag for the main category */
+    .tag.accent {
+      background: rgba(200,240,110,0.08);
+      color: var(--accent);
+      border-color: rgba(200,240,110,0.2);
+    }
+
+    /* arrow in top right of each card */
+    .project-arrow {
+      font-size: 20px;
+      color: var(--muted);
+      margin-top: 4px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    /* arrow moves diagonally on hover */
+    .project-card:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(3px, -3px);
+    }
+
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-container { grid-template-columns: 1fr; }
+      /* hide photo on mobile so it doesnt crowd the text */
+      .hero-photo { display: none; }
     }
 
   </style>
@@ -400,22 +519,28 @@
   <section class="hero">
     <div class="hero-container">
 
-      <!-- small tag above the name -->
-      <div class="hero-tag">Honors CS · UCI</div>
+      <!-- left side - text -->
+      <div>
+        <!-- small tag above the name -->
+        <div class="hero-tag">Honors CS · UCI</div>
 
-      <!-- ur name - italic part drops to its own line -->
-      <h1>Navid<br><em>Atashbar.</em></h1>
+        <!-- ur name - italic part drops to its own line -->
+        <h1>Navid<br><em>Atashbar.</em></h1>
 
-      <!-- one liner -->
-      <p class="hero-oneliner">
-        <span>CS Student @ UCI</span> · ML & Computer Vision
-      </p>
+        <!-- one liner -->
+        <p class="hero-oneliner">
+          <span>CS Student @ UCI</span> · ML & Computer Vision
+        </p>
 
-      <!-- buttons - swap YOUR_GITHUB and YOUR_LINKEDIN -->
-      <div class="hero-links">
-        <a href="https://github.com/YOUR_GITHUB" target="_blank" class="btn btn-primary">GitHub ↗</a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-        <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
+        <div class="hero-links">
+          <a href="https://github.com/navida2" target="_blank" class="btn btn-primary">GitHub ↗</a>
+          <a href="https://linkedin.com/in/navid-atashbar" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="atashbar@uci.edu-b1d3e420.jpg" alt="Navid Atashbar" />
       </div>
 
     </div>
@@ -424,7 +549,6 @@
   <section id="about">
     <div class="section-container">
 
-      <!-- section header with number and line -->
       <div class="section-header">
         <span class="section-num">01</span>
         <h2 class="section-title">About</h2>
@@ -490,6 +614,96 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-container">
+
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- hand detector -->
+        <a href="https://github.com/navida2/Hand-Detector" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">001</div>
+            <div class="project-title">Hand Detector</div>
+            <div class="project-desc">
+              Real-time hand detection using a webcam. Detects left, right, or both hands
+              simultaneously using MediaPipe's landmark model and displays live results in a text UI.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Computer Vision</span>
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">MediaPipe</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <!-- google calendar -->
+        <a href="https://github.com/navida2/google_calender_event_creator" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">002</div>
+            <div class="project-title">Google Calendar Event Creator</div>
+            <div class="project-desc">
+              Parses structured input files and programmatically creates recurring Google Calendar
+              events — handles names, times, recurrence rules, and location via OAuth 2.0.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Automation</span>
+              <span class="tag">Python</span>
+              <span class="tag">Google API</span>
+              <span class="tag">OAuth 2.0</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <!-- autotech -->
+        <a href="https://github.com/navida2/autotech" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">003</div>
+            <div class="project-title">Auto Tech — Business Website</div>
+            <div class="project-desc">
+              Custom website built for a local auto repair shop. Reached 50+ daily visitors
+              and contributed to a 10% increase in sales through improved digital presence.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Web Dev</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <!-- dijkstras -->
+        <a href="https://github.com/navida2/dijkstras_and_ladder_stack_problem" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">004</div>
+            <div class="project-title">Dijkstra's & Ladder Stack Problem</div>
+            <div class="project-desc">
+              C++ implementations of Dijkstra's shortest path algorithm and the classic
+              ladder/stack problem — focused on clean algorithm design and efficiency.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Algorithms</span>
+              <span class="tag">C++</span>
+              <span class="tag">Graph Theory</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+      </div>
     </div>
   </section>
 
