@@ -213,9 +213,7 @@
       animation: fadeUp 0.6s 0.2s ease both;
     }
 
-    .hero-oneliner span {
-      color: var(--text);
-    }
+    .hero-oneliner span { color: var(--text); }
 
     /* github linkedin email buttons */
     .hero-links {
@@ -263,41 +261,118 @@
       transform: translateY(-2px);
     }
 
-    /* stat row at the bottom of the hero */
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 36px;
-      color: var(--accent);
-      display: block;
-      letter-spacing: -1px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
     /* the fade up animation used throughout the hero */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .hero-stats { gap: 28px; }
+    /* shared section styles - reused across about, projects, education */
+    .section-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* the header row with number, title, and a line */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 36px;
+      color: var(--text);
+      letter-spacing: -1px;
+    }
+
+    /* the line that stretches to fill the rest of the header */
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* two column layout - bio on left, skills on right */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* highlights key words in the bio */
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* label above each skills group */
+    .skills-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      margin-top: 28px;
+    }
+
+    .skills-label:first-child { margin-top: 0; }
+
+    /* the skills chips */
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 2px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: rgba(200,240,110,0.3);
+      color: var(--text);
+    }
+
+    /* green chip for areas of interest - stands out more */
+    .skill-chip.accent {
+      background: rgba(200,240,110,0.06);
+      border-color: rgba(200,240,110,0.2);
+      color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
   </style>
 </head>
 <body>
@@ -325,10 +400,10 @@
   <section class="hero">
     <div class="hero-container">
 
-      <!-- small tag - swap text if u want -->
-      <div class="hero-tag">>Honors CS · UCI</div>
+      <!-- small tag above the name -->
+      <div class="hero-tag">Honors CS · UCI</div>
 
-      <!-- ur name - the italic part drops to its own line -->
+      <!-- ur name - italic part drops to its own line -->
       <h1>Navid<br><em>Atashbar.</em></h1>
 
       <!-- one liner -->
@@ -336,27 +411,84 @@
         <span>CS Student @ UCI</span> · ML & Computer Vision
       </p>
 
+      <!-- buttons - swap YOUR_GITHUB and YOUR_LINKEDIN -->
       <div class="hero-links">
-        <a href="https://github.com/navida2" target="_blank" class="btn btn-primary">GitHub ↗</a>
-        <a href="https://linkedin.com/in/navid-atashbar" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="https://github.com/YOUR_GITHUB" target="_blank" class="btn btn-primary">GitHub ↗</a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
         <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
       </div>
 
-      <!-- quick stats so recruiters see the highlights fast
-      <div class="hero-stats">
-        <div>
-          <span class="stat-num">3.63</span>
-          <span class="stat-label">GPA at UCI</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-container">
+
+      <!-- section header with number and line -->
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- left side - bio -->
+        <div class="about-text">
+          <p>
+            I'm a third-year <strong>Honors CS student at UC Irvine</strong> specializing in
+            AI, systems, and network engineering. I'm most interested in problems where
+            software meets the real world — particularly <strong>machine learning</strong>
+            and <strong>computer vision</strong> applied to things that actually matter.
+          </p>
+          <br>
+          <p>
+            Outside of class I've built projects ranging from a real-time
+            <strong>hand detection system</strong> using OpenCV to a
+            <strong>business website</strong> that drove a 10% sales increase
+            for a local auto shop. I'm active in <strong>AI@UCI</strong> and
+            <strong>Cyber@UCI</strong> and always looking for ways to apply
+            what I'm learning to real problems.
+          </p>
         </div>
+
+        <!-- right side - skills grouped by category -->
         <div>
-          <span class="stat-num">5×</span>
-          <span class="stat-label">Dean's Honor List</span>
+
+          <div class="skills-label">Areas of Interest</div>
+          <div class="skills-row">
+            <span class="skill-chip accent">Machine Learning</span>
+            <span class="skill-chip accent">Computer Vision</span>
+            <span class="skill-chip accent">AI Systems</span>
+            <span class="skill-chip accent">Full Stack</span>
+          </div>
+
+          <div class="skills-label">Languages</div>
+          <div class="skills-row">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">C</span>
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">HTML/CSS/JS</span>
+          </div>
+
+          <div class="skills-label">Frameworks & Libraries</div>
+          <div class="skills-row">
+            <span class="skill-chip">PyTorch</span>
+            <span class="skill-chip">OpenCV</span>
+            <span class="skill-chip">MediaPipe</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">Pygame</span>
+          </div>
+
+          <div class="skills-label">Tools</div>
+          <div class="skills-row">
+            <span class="skill-chip">Git</span>
+            <span class="skill-chip">AWS</span>
+          </div>
+
         </div>
-        <div>
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Projects shipped</span>
-        </div>
-      </div> -->
+      </div>
 
     </div>
   </section>
