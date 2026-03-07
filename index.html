@@ -192,12 +192,14 @@
       display: block;
     }
 
+    /* one liner - merged and cleaned up, was defined twice before */
     .hero-oneliner {
       font-size: 14px;
       color: var(--muted);
       letter-spacing: 0.05em;
       margin-bottom: 48px;
       animation: fadeUp 0.6s 0.2s ease both;
+      white-space: nowrap;
     }
 
     .hero-oneliner span { color: var(--text); }
@@ -245,16 +247,17 @@
       transform: translateY(-2px);
     }
 
-    /* photo on the right - slight desaturation to match dark theme */
+    /* photo on the right side of the hero */
     .hero-photo {
       animation: fadeUp 0.6s 0.2s ease both;
       flex-shrink: 0;
     }
 
     .hero-photo img {
-      width: 260px;
-      height: 320px;
+      width: 220px;
+      height: 280px;
       object-fit: cover;
+      object-position: center top; /* focuses on the face */
       border-radius: 4px;
       border: 1px solid var(--border);
       box-shadow: 0 0 0 1px rgba(200,240,110,0.1), 0 24px 64px rgba(0,0,0,0.5);
@@ -593,6 +596,7 @@
           <a href="mailto:atashbar@uci.edu" class="btn btn-outline">Email ↗</a>
         </div>
       </div>
+      <!-- make sure ur photo file is in the same folder as this html file -->
       <div class="hero-photo">
         <img src="atashbar@uci.edu-b1d3e420.jpg" alt="Navid Atashbar" />
       </div>
@@ -610,18 +614,18 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a third-year <strong>Honors CS student at UC Irvine</strong> specializing in
+            I'm a third-year Honors CS student at UC Irvine specializing in
             AI, systems, and network engineering. I'm most interested in problems where
-            software meets the real world — particularly <strong>machine learning</strong>
-            and <strong>computer vision</strong> applied to things that actually matter.
+            software meets the real world — particularly machine learning
+            and computer visionapplied to things that actually matter.
           </p>
           <br>
           <p>
             Outside of class I've built projects ranging from a real-time
-            <strong>hand detection system</strong> using OpenCV to a
-            <strong>business website</strong> that drove a 10% sales increase
-            for a local auto shop. I'm active in <strong>AI@UCI</strong> and
-            <strong>Cyber@UCI</strong> and always looking to apply what I'm
+            hand detection system using OpenCV to a
+            business website that drove a 10% sales increase
+            for a local auto shop. I'm active in AI@UCI and
+            Cyber@UCI and always looking to apply what I'm
             learning to real problems.
           </p>
         </div>
@@ -648,6 +652,8 @@
             <span class="skill-chip">MediaPipe</span>
             <span class="skill-chip">Pandas</span>
             <span class="skill-chip">Pygame</span>
+            <span class="skill-chip">Scikit</span>
+
           </div>
           <div class="skills-label">Tools</div>
           <div class="skills-row">
@@ -675,7 +681,7 @@
             <div class="project-title">Hand Detector</div>
             <div class="project-desc">
               Real-time hand detection using a webcam. Detects left, right, or both hands
-              simultaneously using MediaPipe's landmark model with a live text UI.
+              while using MediaPipe's model.
             </div>
             <div class="project-tags">
               <span class="tag accent">Computer Vision</span>
@@ -693,7 +699,7 @@
             <div class="project-title">Google Calendar Event Creator</div>
             <div class="project-desc">
               Parses structured input files and programmatically creates recurring Google Calendar
-              events — handles names, times, recurrence rules, and location via OAuth 2.0.
+              events that handles names, times, recurrence rules, and location, used OAuth 2.0.
             </div>
             <div class="project-tags">
               <span class="tag accent">Automation</span>
@@ -708,7 +714,7 @@
         <a href="https://github.com/navida2/autotech" target="_blank" class="project-card">
           <div>
             <div class="project-num">003</div>
-            <div class="project-title">Auto Tech — Business Website</div>
+            <div class="project-title">Auto Tech Business Website</div>
             <div class="project-desc">
               Custom website for a local auto repair shop. Reached 50+ daily visitors and
               contributed to a 10% increase in sales through improved digital presence.
@@ -728,8 +734,8 @@
             <div class="project-num">004</div>
             <div class="project-title">Dijkstra's & Ladder Stack Problem</div>
             <div class="project-desc">
-              C++ implementations of Dijkstra's shortest path algorithm and the ladder stack
-              problem — focused on clean algorithm design and efficiency.
+              C++ implementation of Dijkstra's shortest path algorithm and the ladder stack
+              problem.
             </div>
             <div class="project-tags">
               <span class="tag accent">Algorithms</span>
@@ -770,7 +776,6 @@
         <div class="section-line"></div>
       </div>
       <div class="timeline">
-
         <div class="timeline-item">
           <div class="timeline-date">2023 — 2027</div>
           <div class="timeline-body">
@@ -785,7 +790,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -794,14 +798,12 @@
   <section id="contact">
     <div class="section-container">
       <div class="contact-inner">
-        <h2>Let's <em>work</em> together.</h2>
-        <p class="contact-sub">
-          I'm actively looking for internships in software engineering,<br>
-          ML engineering, or research. Let's talk.
-        </p>
+        <h2>Links!</h2>
+        
         <div class="contact-links">
           <a href="mailto:atashbar@uci.edu" class="btn btn-primary">Send an Email ↗</a>
-          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+          <!-- fixed - was still YOUR_LINKEDIN before -->
+          <a href="https://linkedin.com/in/navid-atashbar" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
           <a href="https://github.com/navida2" target="_blank" class="btn btn-outline">GitHub ↗</a>
         </div>
       </div>
