@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Navid Atashbar</title>
+        <style>
+            *,*::before,*::after { box-sizing:border-box;margin:0;padding:0;}
+            :root {
+                --bg: #0c0c0e;
+                --accent: #c8f06e;
+            }
+            body {
+                background: var(--bg);
+                min-height: 100vh;
+            }
+            .grid-bg {
+                position: fixed;
+                inset:0;
+                background-image: 
+                    linear-gradient(rgba(200,240,110,0.07) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(200,240,110,0.07) 1px, transparent 1px);
+                background-size: 60px 60px;
+                pointer-events: none;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "grid-bg"></div>
+    </body>
+</html>
