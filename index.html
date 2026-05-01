@@ -572,6 +572,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#contact" class="nav-cta">Contact ↗</a>
       </div>
@@ -615,16 +616,13 @@
         <div class="about-text">
           <p>
             I'm a third-year Honors CS student at UC Irvine specializing in
-            AI, Computer Vision, and network engineering. I'm most interested in problems where
-            software meets the real world particularly machine learning
-            and computer vision applied to things that actually matter.
+            AI and Computer Vision. I'm most interested in problems where
+            software meets the real world — particularly machine learning,
+            computer vision, and agentic AI systems applied to things that matter.
           </p>
           <br>
           <p>
-            Outside of class I've built projects like a
-            hand detection system using OpenCV and a
-            business website that drove a 10% sales increase
-            for a local auto shop. I am actively conducting research invovling machine learning and gene sequencing. 
+            I'm currently a Research Assistant in the Zhang Lab at UCI, building agentic LLM workflows for genomic data analysis using biomedical APIs and structured prompting. Outside of research I've shipped projects spanning full-stack search engines, ML pipelines, and a business website that drove a 10% sales increase for a local auto shop.
           </p>
         </div>
         <div>
@@ -641,22 +639,30 @@
             <span class="skill-chip">C</span>
             <span class="skill-chip">C++</span>
             <span class="skill-chip">SQL</span>
-            <span class="skill-chip">HTML/CSS/JS</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">HTML/CSS</span>
           </div>
           <div class="skills-label">Frameworks & Libraries</div>
           <div class="skills-row">
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">FastAPI</span>
             <span class="skill-chip">PyTorch</span>
+            <span class="skill-chip">TensorFlow</span>
             <span class="skill-chip">OpenCV</span>
-            <span class="skill-chip">MediaPipe</span>
             <span class="skill-chip">Pandas</span>
-            <span class="skill-chip">Pygame</span>
-            <span class="skill-chip">Scikit</span>
-
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">LangChain</span>
+            <span class="skill-chip">Node.js</span>
           </div>
           <div class="skills-label">Tools</div>
           <div class="skills-row">
             <span class="skill-chip">Git</span>
             <span class="skill-chip">AWS</span>
+            <span class="skill-chip">SQLite</span>
+            <span class="skill-chip">OAuth 2.0</span>
+            <span class="skill-chip">Hugging Face</span>
+            <span class="skill-chip">Linux</span>
           </div>
         </div>
       </div>
@@ -673,9 +679,67 @@
       </div>
       <div class="projects-grid">
 
-        <a href="https://github.com/navida2/Hand-Detector" target="_blank" class="project-card">
+        <a href="https://github.com/navida2/Search-Engine" target="_blank" class="project-card">
           <div>
             <div class="project-num">01</div>
+            <div class="project-title">Search Engine</div>
+            <div class="project-desc">
+              Full-stack search engine indexing 55,000+ web pages with a disk-based inverted index,
+              TF-IDF ranking with importance boosting, and a web crawler with infinite trap avoidance
+              and MD5 duplicate detection. Achieved sub-100ms query latency.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Systems</span>
+              <span class="tag">Python</span>
+              <span class="tag">TF-IDF</span>
+              <span class="tag">Web Crawler</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a href="https://github.com/navida2/API_Spotify" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">02</div>
+            <div class="project-title">Spotify Music Taste Platform</div>
+            <div class="project-desc">
+              Full-stack web app (FastAPI + React/Vite) integrating Spotify OAuth 2.0 to aggregate
+              top tracks and auto-assign users to their UC campus via .edu email detection. Features
+              a taste compatibility engine and blind "battle" ranking all 10 UC campuses.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Full Stack</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">OAuth 2.0</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a href="https://github.com/navida2/178_Diabetes" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">03</div>
+            <div class="project-title">Diabetes Readmission Prediction</div>
+            <div class="project-desc">
+              Built and benchmarked 4 ML models (kNN, Logistic Regression, MLP, Random Forest) on
+              100K+ patient records. Diagnosed class imbalance via precision/recall/F1 analysis and
+              applied hyperparameter tuning, improving minority-class recall by 15%.
+            </div>
+            <div class="project-tags">
+              <span class="tag accent">Machine Learning</span>
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Pandas</span>
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a href="https://github.com/navida2/Hand-Detector" target="_blank" class="project-card">
+          <div>
+            <div class="project-num">04</div>
             <div class="project-title">Hand Detector</div>
             <div class="project-desc">
               Real-time hand detection using a webcam. Detects left, right, or both hands
@@ -693,11 +757,11 @@
 
         <a href="https://github.com/navida2/google_calender_event_creator" target="_blank" class="project-card">
           <div>
-            <div class="project-num">02</div>
+            <div class="project-num">05</div>
             <div class="project-title">Google Calendar Event Creator</div>
             <div class="project-desc">
               Parses structured input files and programmatically creates recurring Google Calendar
-              events that handles names, times, recurrence rules, and location, used OAuth 2.0.
+              events handling names, times, recurrence rules, and location via OAuth 2.0.
             </div>
             <div class="project-tags">
               <span class="tag accent">Automation</span>
@@ -711,7 +775,7 @@
 
         <a href="https://github.com/navida2/autotech" target="_blank" class="project-card">
           <div>
-            <div class="project-num">03</div>
+            <div class="project-num">06</div>
             <div class="project-title">Auto Tech Business Website</div>
             <div class="project-desc">
               Custom website for a local auto repair shop. Reached 50+ daily visitors and
@@ -729,7 +793,7 @@
 
         <a href="https://github.com/navida2/dijkstras_and_ladder_stack_problem" target="_blank" class="project-card">
           <div>
-            <div class="project-num">04</div>
+            <div class="project-num">07</div>
             <div class="project-title">Dijkstra's & Ladder Stack Problem</div>
             <div class="project-desc">
               C++ implementation of Dijkstra's shortest path algorithm and the ladder stack
@@ -746,7 +810,7 @@
 
         <a href="https://github.com/navida2/kruskals_bfs_dfs" target="_blank" class="project-card">
           <div>
-            <div class="project-num">05</div>
+            <div class="project-num">08</div>
             <div class="project-title">Kruskal's, BFS & DFS</div>
             <div class="project-desc">
               C++ implementations of Kruskal's minimum spanning tree algorithm alongside
@@ -765,11 +829,38 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Mar 2026 — Present</div>
+          <div class="timeline-body">
+            <h3>Dr. Jing Zhang Lab — UCI</h3>
+            <div class="timeline-sub">Research Assistant</div>
+            <div class="timeline-desc">
+              <ul>
+                <li>Engineered data pipelines processing structured JSONL genomic datasets across three task domains: enhancer generation, transcription factor perturbation, and sequence pairing prediction</li>
+                <li>Designed and evaluated agentic workflows integrating tool-calling LLMs with biomedical APIs (ToolUniverse), using structured prompting to improve reasoning reliability over genomic DNA/RNA sequences</li>
+                <li>Ran experiments across multi-step LLM reasoning pipelines, identifying failure modes and driving iterative improvements to agent accuracy and output quality</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <h2 class="section-title">Education</h2>
         <div class="section-line"></div>
       </div>
@@ -778,12 +869,11 @@
           <div class="timeline-date">2023 — 2027</div>
           <div class="timeline-body">
             <h3>UC Irvine</h3>
-            <div class="timeline-sub">B.S. Honors Computer Science — AI, Systems & Networks</div>
+            <div class="timeline-sub">B.S. Honors Computer Science — AI & Computer Vision</div>
             <div class="timeline-desc">
               <ul>
-                <li>GPA: 3.66/4.0 · Dean's Honor List (5 quarters)</li>
-                <li>Coursework: Data Structures & Algorithms, Design & Analysis of Algorithms, System Design, Machine Learning, Computer Vision, Information Retrieval, AI</li>
-                <li>Research - The Zhang Lab UCI</li>
+                <li>GPA: 3.67/4.0 · Dean's Honor List (6 quarters)</li>
+                <li>Coursework: Data Structures & Algorithms, Design & Analysis of Algorithms, System Design, Machine Learning, Computer Vision, Information Retrieval, AI, Data Mining</li>
               </ul>
             </div>
           </div>
@@ -811,7 +901,7 @@
   <!-- FOOTER -->
   <div class="section-container">
     <footer>
-      <div class="footer-copy">© 2025 <span>Navid Atashbar</span></div>
+      <div class="footer-copy">© 2026 <span>Navid Atashbar</span></div>
       <div class="footer-copy">atashbar@uci.edu · Irvine, CA</div>
     </footer>
   </div>
